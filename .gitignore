@@ -1,0 +1,5 @@
+.idea/
+api/migrations/*
+calcounter/__pycache__/*
+db*
+venv/
