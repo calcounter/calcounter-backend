@@ -25,7 +25,7 @@ SECRET_KEY = ')=^ki@5^22dqme2*l!=5gvq#zmsulh*s7hk585&^nfx8v$3fe='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['']
 
 
 # Application definition
@@ -54,6 +54,10 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'calcounter.urls'
 
+#REST_FRAMEWORK = {
+#    'PAGE_SIZE' : 20
+#}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -72,11 +76,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'calcounter.wsgi.application'
 
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModulePermissionsOrAnonReadOnly'
-    ]
-}
+#REST_FRAMEWORK = {
+#    'DEFAULT_PERMISSION_CLASSES': [
+#        'rest_framework.permissions.DjangoModulePermissionsOrAnonReadOnly'
+#    ]
+#}
 
 
 # Database
