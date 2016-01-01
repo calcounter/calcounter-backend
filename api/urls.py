@@ -7,6 +7,6 @@ router = DefaultRouter()
 router.register(r'profile/meals', views.MealViewSet)
 
 urlpatterns = [
-    url(r'^profile$', views.ProfileView.as_view()),
+    url(r'^profile/$', views.ProfileView.as_view()),
     url(r'^', include(router.urls)),
 ]

@@ -9,6 +9,7 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     user = models.OneToOneField(User, unique=True)
+    calorie_goal = models.IntegerField(default=2000)
 
     def __str__(self):
         return self.user.username
@@ -16,7 +17,7 @@ class Profile(models.Model):
 
 class Meal(models.Model):
     description = models.CharField(max_length=200, blank=True, default='')
-    calories = models.CharField(max_length=5)
+    calories = models.IntegerField()
     created = models.DateTimeField(editable=False)
     modified = models.DateTimeField()
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='meals')
