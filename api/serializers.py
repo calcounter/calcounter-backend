@@ -16,4 +16,4 @@ class ProfileSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Profile
-        fields = ('id', 'first_name', 'last_name', 'meals')
+        fields = ('id', 'first_name', 'last_name', 'calorie_goal', 'meals')
