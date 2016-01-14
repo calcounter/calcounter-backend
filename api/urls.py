@@ -4,7 +4,7 @@ from rest_framework.routers import DefaultRouter
 
 
 router = DefaultRouter()
-router.register(r'profile/meals', views.MealViewSet)
+router.register(r'^meals', views.MealViewSet)
 
 urlpatterns = [
     url(r'^profile/$', views.ProfileView.as_view()),

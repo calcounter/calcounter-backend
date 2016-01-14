@@ -65,10 +65,6 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'calcounter.urls'
 
-#REST_FRAMEWORK = {
-#    'PAGE_SIZE' : 20
-#}
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -94,8 +90,13 @@ WSGI_APPLICATION = 'calcounter.wsgi.application'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication'
-    ]
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 25
+
+
 }
 
 
@@ -115,15 +116,17 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
-
 USE_I18N = True
 
 USE_L10N = True
 
 USE_TZ = True
 
+TIME_ZONE = 'America/Los_Angeles'
+
 CORS_ORIGIN_ALLOW_ALL = True
+
+
 
 
 # Static files (CSS, JavaScript, Images)

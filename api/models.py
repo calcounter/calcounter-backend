@@ -16,10 +16,11 @@ class Profile(models.Model):
 
 
 class Meal(models.Model):
-    description = models.CharField(max_length=200, blank=True, default='')
+    description = models.CharField(max_length=200)
     calories = models.IntegerField()
     created = models.DateTimeField(editable=False)
     modified = models.DateTimeField()
+    datetime = models.DateTimeField()
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='meals')
 
     def __str__(self):
