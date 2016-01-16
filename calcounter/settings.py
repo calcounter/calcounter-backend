@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv('SECRET_KEY', ')=^ki@5^22dqme2*l!=5gvq#zmsulh*s7hk585&^nfx8v$3fe=')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if os.getenv('DEBUG') else False
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS')
 
@@ -104,20 +104,6 @@ REST_FRAMEWORK = {
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-
-# DATABASES = {
-#     'default': {
-#         #'ENGINE': 'django.db.backends.sqlite3',
-#         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'calcounter',
-#         'USER': 'calcounteradmin',
-#         'PASSWORD': 'password',
-#         'HOST': 'localhost',
-#         'PORT': '',
-#
-#     }
-# }
 if DEBUG:
     DATABASES = {
     'default': {
@@ -134,14 +120,6 @@ if DEBUG:
 }
 else:
     DATABASES['default'] =  dj_database_url.config()
-
-
-
-
-# if DEBUG == False:
-#     DATABASES = {
-#         'default': dj_database_url.config()
-#     }
 
 
 # Internationalization
