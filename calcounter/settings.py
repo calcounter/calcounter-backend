@@ -103,8 +103,8 @@ REST_FRAMEWORK = {
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
-if DEBUG:
+DATABASES = {}
+if DEBUG == 'True':
     DATABASES = {
     'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
