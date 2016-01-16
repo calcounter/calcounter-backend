@@ -26,7 +26,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', ')=^ki@5^22dqme2*l!=5gvq#zmsulh*s7hk585&^nf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if os.getenv('DEBUG') else False
 
-ALLOWED_HOSTS = ['']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS')
 
 
 # Application definition
@@ -104,17 +104,44 @@ REST_FRAMEWORK = {
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+
+# DATABASES = {
+#     'default': {
+#         #'ENGINE': 'django.db.backends.sqlite3',
+#         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'calcounter',
+#         'USER': 'calcounteradmin',
+#         'PASSWORD': 'password',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#
+#     }
+# }
 if DEBUG:
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
+    'default': {
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'calcounter',
+        'USER': 'calcounteradmin',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
+
     }
+}
 else:
-    DATABASES = {
-        'default': dj_database_url.config()
-    }
+    DATABASES['default'] =  dj_database_url.config()
+
+
+
+
+# if DEBUG == False:
+#     DATABASES = {
+#         'default': dj_database_url.config()
+#     }
 
 
 # Internationalization
