@@ -1,5 +1,5 @@
 .idea/
-api/migrations/*
+
 */__pycache__
 db*
 venv/
